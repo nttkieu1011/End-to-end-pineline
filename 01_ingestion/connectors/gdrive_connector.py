@@ -54,7 +54,8 @@ def list_drive_files(folder_id):
             f"ID: {file['id']} | "
             f"Loại: {file['mimeType']}"
         )
-
+    return files
+    
 # tải file từ Google Drive về bộ nhớ
 def download_file(file_id):
     service = get_drive_service()
@@ -77,16 +78,3 @@ def load_file_as_dataframe(file_id, file_name):
     print(df.head())
 
     return df
-
-# Chạy thử
-if __name__ == "__main__":
-    test_connection()
-
-    print("\n--- Danh sách file ---")
-    list_drive_files("1DxPEHsw8n8_jv6KKSgEdAoEpbkqSWGaa")
-
-    print("\n--- Đọc thử XLSX ---")
-    df = load_file_as_dataframe(
-        "1uEihVmPpHf--T50EYi1QxsxxpD4QTxDn",
-        "SRC05_distributor_orders.xlsx"
-    )
