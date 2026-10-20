@@ -12,7 +12,6 @@ if str(ingestion_path) not in sys.path:
     sys.path.insert(0, str(ingestion_path))
 from utils.file_parser import parse_file
 
-# Cấu hình Google Drive
 credentials_path = (
     project_root / "credentials" / "minpyws-e949ad82d40b.json"
 )
@@ -25,14 +24,6 @@ def get_drive_service():
     )
     service = build("drive", "v3", credentials=credentials)
     return service
-
-#kiểm tra kết nối với Google Drive
-def test_connection():
-    service = get_drive_service()
-    results = service.about().get(fields="user").execute()
-    
-    print("Connected to Google Drive API thành công!")
-    print("Service Account:", results["user"]["emailAddress"])
 
 #liệt kê các files service account có quyền truy cập
 def list_drive_files(folder_id):
@@ -56,7 +47,7 @@ def list_drive_files(folder_id):
         )
     return files
     
-# tải file từ Google Drive về bộ nhớ
+# tải file về bộ nhớ
 def download_file(file_id):
     service = get_drive_service()
 
@@ -66,7 +57,7 @@ def download_file(file_id):
 
     return content
 
-#Tải file từ Google Drive và đọc thành DataFrame
+#Đọc file thành DataFrame
 def load_file_as_dataframe(file_id, file_name):
     file_content = download_file(file_id)
 
