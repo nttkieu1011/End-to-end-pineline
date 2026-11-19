@@ -1,7 +1,7 @@
 # End-to-End-Pipeline
-To understand how raw business data is collected, processed, transformed, and prepared for analysis.
+*To understand how raw business data is collected, processed, transformed, and prepared for analysis.*
 
-## I.Overview
+### I.Overview
 
 An end-to-end data project that explores the complete data workflow, from collecting raw business data to transforming it into structured, analysis-ready datasets for business reporting.
 
@@ -13,6 +13,7 @@ An end-to-end data project that explores the complete data workflow, from collec
 - Prepare data for business analysis and reporting.
 
 **Processing Workflow**
+![Data Workflow](workflow.png)
 
 **Project Architecture** 
 
@@ -24,7 +25,7 @@ The project follows the Medallion Architecture to organize data processing into 
 
 Python handles data ingestion, while SQL is used for data transformation, validation, and data warehouse development.
 
-## II. Data Overview
+### II. Data Overview
 
 **Data Sources**
 
@@ -53,7 +54,7 @@ The source data covers multiple business domains:
 - **Relational Data:** Business entities are connected through common identifiers such as customer, product, distributor, and employee IDs.
 - **Data Quality Challenges:** Requires handling missing values, inconsistent records, and data standardization before analysis.
 
-## III. Tech Stack
+### III. Tech Stack
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
@@ -72,7 +73,7 @@ The source data covers multiple business domains:
 | Visual Studio Code | Development environment |
 | Git & GitHub | Version control and project management |
 
-## IV. Project Structure
+### IV. Project Structure
 
 ```text
 Structure/
@@ -92,7 +93,7 @@ Structure/
 │
 └── .gitignore
 ```
-## V. Setup & Execution
+### V. Setup & Execution
 
 **Step 1: Clone the Repository**
 
@@ -126,16 +127,20 @@ Install the required Python libraries before running the ingestion scripts.
 
 **Step 4: Execute the Data Workflow**
 
-***Step 4.1 – Data Ingestion***
+*Step 4.1 – Data Ingestion*
 - Run individual Python loader scripts in `01_ingestion/loaders/` to retrieve source files from Google Drive and load raw data into PostgreSQL.
 
-***Step 4.2 – Data Transformation***
+*Step 4.2 – Data Transformation*
 - Execute SQL scripts in `02_sql_analytics/raw/` to prepare the Bronze layer.
 - Run SQL scripts in `02_sql_analytics/stg/` to create and transform Silver datasets.
 
-***Step 4.3 – Data Quality Validation***
+*Step 4.3 – Data Quality Validation*
 - Execute `test_after_transform.sql` to validate the transformed datasets.
 - Refer to `data_issues.md` for documented data quality issues.
 
-***Step 4.4 – Analytical Data Modeling***
+*Step 4.4 – Analytical Data Modeling*
 - Execute SQL scripts in `02_sql_analytics/gold/` to create Dimension, Fact, and Mart views for business analysis and reporting.
+
+### VI. Conclusion
+
+This project demonstrates an end-to-end data preparation workflow, from raw data ingestion to analytical data modeling. Through this project, I gained hands-on experience in using Python and SQL to process, validate, and organize business data into structured datasets ready for analysis and reporting.
