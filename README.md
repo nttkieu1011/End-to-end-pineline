@@ -1,7 +1,7 @@
 # End-to-End-Pipeline
 *To understand how raw business data is collected, processed, transformed, and prepared for analysis.*
 
-### I.Overview
+### I. Overview
 
 An end-to-end data project that explores the complete data workflow, from collecting raw business data to transforming it into structured, analysis-ready datasets for business reporting.
 
